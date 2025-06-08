@@ -25,8 +25,8 @@ export default function ChatListScreen({ chats, onSelectChat }: ChatListScreenPr
       <div className="p-6 border-b">
         <div className="flex items-center justify-between mb-4">
           <h1 className="text-2xl font-bold">Messages</h1>
-          <Button variant="ghost" size="icon">
-            <Search className="w-6 h-6" />
+          <Button variant="ghost" size="icon" aria-label="Search messages">
+            <Search className="w-6 h-6" aria-hidden="true" />
           </Button>
         </div>
       </div>

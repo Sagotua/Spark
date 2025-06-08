@@ -71,8 +71,13 @@ export default function RegisterScreen({ onRegister, onNavigate }: RegisterScree
   return (
     <div className="min-h-screen bg-white p-6">
       <div className="flex items-center mb-8">
-        <Button variant="ghost" size="icon" onClick={() => onNavigate("welcome")}>
-          <ArrowLeft className="w-6 h-6" />
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => onNavigate("welcome")}
+          aria-label="Back"
+        >
+          <ArrowLeft className="w-6 h-6" aria-hidden="true" />
         </Button>
         <h1 className="text-2xl font-bold ml-4">Create Account</h1>
       </div>
@@ -87,7 +92,7 @@ export default function RegisterScreen({ onRegister, onNavigate }: RegisterScree
         <div className="space-y-2">
           <label htmlFor="register-name" className="text-sm font-medium text-gray-700">Name</label>
           <div className="relative">
-            <UserIcon className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+            <UserIcon className="absolute left-3 top-3 w-5 h-5 text-gray-400" aria-hidden="true" />
             <Input
               id="register-name"
               placeholder="Enter your name"
@@ -101,7 +106,7 @@ export default function RegisterScreen({ onRegister, onNavigate }: RegisterScree
         <div className="space-y-2">
           <label htmlFor="register-email" className="text-sm font-medium text-gray-700">Email</label>
           <div className="relative">
-            <Mail className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+            <Mail className="absolute left-3 top-3 w-5 h-5 text-gray-400" aria-hidden="true" />
             <Input
               id="register-email"
               type="email"
@@ -116,7 +121,7 @@ export default function RegisterScreen({ onRegister, onNavigate }: RegisterScree
         <div className="space-y-2">
           <label htmlFor="register-password" className="text-sm font-medium text-gray-700">Password</label>
           <div className="relative">
-            <Lock className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+            <Lock className="absolute left-3 top-3 w-5 h-5 text-gray-400" aria-hidden="true" />
             <Input
               id="register-password"
               type="password"
@@ -131,7 +136,7 @@ export default function RegisterScreen({ onRegister, onNavigate }: RegisterScree
         <div className="space-y-2">
           <label htmlFor="register-age" className="text-sm font-medium text-gray-700">Age</label>
           <div className="relative">
-            <Calendar className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+            <Calendar className="absolute left-3 top-3 w-5 h-5 text-gray-400" aria-hidden="true" />
             <Input
               id="register-age"
               type="number"

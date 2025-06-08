@@ -57,10 +57,11 @@ export default function LoginScreen({ onLogin, onNavigate }: LoginScreenProps) {
         )}
 
         <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-700">Email</label>
+          <label htmlFor="login-email" className="text-sm font-medium text-gray-700">Email</label>
           <div className="relative">
             <Mail className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
             <Input
+              id="login-email"
               type="email"
               placeholder="Enter your email"
               value={email}
@@ -71,10 +72,11 @@ export default function LoginScreen({ onLogin, onNavigate }: LoginScreenProps) {
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-700">Password</label>
+          <label htmlFor="login-password" className="text-sm font-medium text-gray-700">Password</label>
           <div className="relative">
             <Lock className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
             <Input
+              id="login-password"
               type="password"
               placeholder="Enter your password"
               value={password}

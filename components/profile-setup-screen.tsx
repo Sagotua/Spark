@@ -106,8 +106,9 @@ export default function ProfileSetupScreen({ onComplete, onNavigate }: ProfileSe
 
           <div className="space-y-4">
             <div>
-              <label className="text-sm font-medium text-gray-700">Name</label>
+              <label htmlFor="setup-name" className="text-sm font-medium text-gray-700">Name</label>
               <Input
+                id="setup-name"
                 value={formData.name}
                 onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
                 placeholder="Enter your name"
@@ -115,8 +116,9 @@ export default function ProfileSetupScreen({ onComplete, onNavigate }: ProfileSe
             </div>
 
             <div>
-              <label className="text-sm font-medium text-gray-700">Age</label>
+              <label htmlFor="setup-age" className="text-sm font-medium text-gray-700">Age</label>
               <Input
+                id="setup-age"
                 type="number"
                 value={formData.age}
                 onChange={(e) => setFormData((prev) => ({ ...prev, age: e.target.value }))}

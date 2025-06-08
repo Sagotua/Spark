@@ -85,10 +85,11 @@ export default function RegisterScreen({ onRegister, onNavigate }: RegisterScree
         )}
 
         <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-700">Name</label>
+          <label htmlFor="register-name" className="text-sm font-medium text-gray-700">Name</label>
           <div className="relative">
             <UserIcon className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
             <Input
+              id="register-name"
               placeholder="Enter your name"
               value={formData.name}
               onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
@@ -98,10 +99,11 @@ export default function RegisterScreen({ onRegister, onNavigate }: RegisterScree
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-700">Email</label>
+          <label htmlFor="register-email" className="text-sm font-medium text-gray-700">Email</label>
           <div className="relative">
             <Mail className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
             <Input
+              id="register-email"
               type="email"
               placeholder="Enter your email"
               value={formData.email}
@@ -112,10 +114,11 @@ export default function RegisterScreen({ onRegister, onNavigate }: RegisterScree
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-700">Password</label>
+          <label htmlFor="register-password" className="text-sm font-medium text-gray-700">Password</label>
           <div className="relative">
             <Lock className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
             <Input
+              id="register-password"
               type="password"
               placeholder="Create a password"
               value={formData.password}
@@ -126,10 +129,11 @@ export default function RegisterScreen({ onRegister, onNavigate }: RegisterScree
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-700">Age</label>
+          <label htmlFor="register-age" className="text-sm font-medium text-gray-700">Age</label>
           <div className="relative">
             <Calendar className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
             <Input
+              id="register-age"
               type="number"
               placeholder="Enter your age"
               value={formData.age}

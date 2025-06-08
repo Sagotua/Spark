@@ -1,3 +1,6 @@
+import type { User } from "./supabase"
+import { supabase, mockUsers } from "./supabase"
+
 export interface LocationData {
   latitude: number
   longitude: number
@@ -14,23 +17,6 @@ export interface LocationPermission {
   prompt: boolean
 }
 
-// Mock data for users (replace with your actual mock data)
-const mockUsers = [
-  { id: "1", location: { lat: 37.7749, lng: -122.4194 } }, // San Francisco
-  { id: "2", location: { lat: 40.7128, lng: -74.006 } }, // New York
-  { id: "3", location: { lat: 34.0522, lng: -118.2437 } }, // Los Angeles
-]
-
-// Mock Supabase client (replace with your actual Supabase client)
-const supabase = {
-  from: (table: string) => ({
-    update: (data: any) => ({
-      eq: (column: string, value: any) => Promise.resolve({ data: null, error: null }),
-    }),
-    select: (columns: string) => Promise.resolve({ data: [], error: null }),
-    neq: (column: string, value: any) => Promise.resolve({ data: [], error: null }),
-  }),
-}
 
 export class GeolocationService {
   private static currentLocation: LocationData | null = null
@@ -289,18 +275,21 @@ export class GeolocationService {
     centerLon: number,
     radiusKm: number,
     excludeUserId?: string,
-  ): Promise<Array<{ user: any; distance: number }>> {
+  ): Promise<Array<{ user: User; distance: number }>> {
     try {
+      // Return mock nearby users when database is not available
       if (!supabase) {
-        // Return mock nearby users
         return mockUsers
           .filter((u) => u.id !== excludeUserId)
-          .map((user) => ({
+          .map((user: User) => ({
             user,
             distance: this.calculateDistance(centerLat, centerLon, user.location.lat, user.location.lng),
           }))
-          .filter((item) => item.distance <= radiusKm)
-          .sort((a, b) => a.distance - b.distance)
+          .filter((item: { distance: number }) => item.distance <= radiusKm)
+          .sort(
+            (a: { distance: number }, b: { distance: number }) =>
+              a.distance - b.distance,
+          )
       }
 
       // In a real app with PostGIS, you'd use spatial queries
@@ -312,12 +301,15 @@ export class GeolocationService {
       if (error) throw error
 
       const nearbyUsers = (users || [])
-        .map((user) => ({
+        .map((user: User) => ({
           user,
           distance: this.calculateDistance(centerLat, centerLon, user.location.lat, user.location.lng),
         }))
-        .filter((item) => item.distance <= radiusKm)
-        .sort((a, b) => a.distance - b.distance)
+        .filter((item: { distance: number }) => item.distance <= radiusKm)
+        .sort(
+          (a: { distance: number }, b: { distance: number }) =>
+            a.distance - b.distance,
+        )
 
       return nearbyUsers
     } catch (error) {

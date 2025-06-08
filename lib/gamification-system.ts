@@ -607,7 +607,9 @@ export const GamificationService = {
       // Get leaderboard data
       const { data, error } = await supabase
         .from("user_gamification")
-        .select(`user_id, ${pointsColumn}, level`)
+        .select(
+          "user_id, daily_points, weekly_points, total_points, level",
+        )
         .order(pointsColumn, { ascending: false })
         .limit(limit)
 

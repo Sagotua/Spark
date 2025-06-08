@@ -4,8 +4,8 @@ import { createClient } from "@supabase/supabase-js"
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://demo.supabase.co"
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "demo-key"
 
-// Only create real client if we have proper credentials
-export const supabase = supabaseUrl.includes("demo") ? null : createClient(supabaseUrl, supabaseKey)
+// Always create a client to simplify type usage during development
+export const supabase = createClient(supabaseUrl, supabaseKey)
 
 // Mock data for when Supabase isn't configured
 const mockUsers = [

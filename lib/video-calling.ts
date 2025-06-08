@@ -1,3 +1,5 @@
+import { supabase } from "./supabase"
+
 export interface CallParticipant {
   id: string
   name: string
@@ -295,11 +297,9 @@ export class VideoCallingService {
     // In a real app, this would connect to your signaling server
     // For demo, we'll use Supabase realtime or WebSocket
 
-    if (typeof supabase === "undefined") return
-
     this.signalingChannel = supabase
       .channel(`call-${matchId}`)
-      .on("broadcast", { event: "signaling" }, (payload) => {
+      .on("broadcast", { event: "signaling" }, (payload: { payload: any }) => {
         this.handleSignalingMessage(payload.payload)
       })
       .subscribe()

@@ -129,9 +129,14 @@ export default function SafetyCenter({ onBack, reportedUserId, reportedUserName 
       <div className="min-h-screen bg-white p-6">
         <div className="max-w-md mx-auto">
           <div className="flex items-center mb-6">
-            <Button variant="ghost" size="icon" onClick={() => setActiveSection("main")}>
-              <ArrowLeft className="w-6 h-6" />
-            </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setActiveSection("main")}
+            aria-label="Back"
+          >
+            <ArrowLeft className="w-6 h-6" aria-hidden="true" />
+          </Button>
             <h1 className="text-2xl font-bold ml-4">Report {reportedUserName}</h1>
           </div>
 
@@ -187,9 +192,14 @@ export default function SafetyCenter({ onBack, reportedUserId, reportedUserName 
       <div className="min-h-screen bg-white p-6">
         <div className="max-w-md mx-auto">
           <div className="flex items-center mb-6">
-            <Button variant="ghost" size="icon" onClick={() => setActiveSection("main")}>
-              <ArrowLeft className="w-6 h-6" />
-            </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setActiveSection("main")}
+            aria-label="Back"
+          >
+            <ArrowLeft className="w-6 h-6" aria-hidden="true" />
+          </Button>
             <h1 className="text-2xl font-bold ml-4">Block {reportedUserName}</h1>
           </div>
 
@@ -223,9 +233,14 @@ export default function SafetyCenter({ onBack, reportedUserId, reportedUserName 
       <div className="min-h-screen bg-white p-6">
         <div className="max-w-md mx-auto">
           <div className="flex items-center mb-6">
-            <Button variant="ghost" size="icon" onClick={() => setActiveSection("main")}>
-              <ArrowLeft className="w-6 h-6" />
-            </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setActiveSection("main")}
+            aria-label="Back"
+          >
+            <ArrowLeft className="w-6 h-6" aria-hidden="true" />
+          </Button>
             <h1 className="text-2xl font-bold ml-4">Safety Tips</h1>
           </div>
 
@@ -257,8 +272,13 @@ export default function SafetyCenter({ onBack, reportedUserId, reportedUserName 
     <div className="min-h-screen bg-white p-6">
       <div className="max-w-md mx-auto">
         <div className="flex items-center mb-8">
-          <Button variant="ghost" size="icon" onClick={onBack}>
-            <ArrowLeft className="w-6 h-6" />
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={onBack}
+            aria-label="Back"
+          >
+            <ArrowLeft className="w-6 h-6" aria-hidden="true" />
           </Button>
           <div className="ml-4">
             <h1 className="text-2xl font-bold">Safety Center</h1>

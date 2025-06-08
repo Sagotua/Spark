@@ -43,8 +43,13 @@ export default function LoginScreen({ onLogin, onNavigate }: LoginScreenProps) {
   return (
     <div className="min-h-screen bg-white p-6">
       <div className="flex items-center mb-8">
-        <Button variant="ghost" size="icon" onClick={() => onNavigate("welcome")}>
-          <ArrowLeft className="w-6 h-6" />
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => onNavigate("welcome")}
+          aria-label="Back"
+        >
+          <ArrowLeft className="w-6 h-6" aria-hidden="true" />
         </Button>
         <h1 className="text-2xl font-bold ml-4">Sign In</h1>
       </div>
@@ -59,7 +64,7 @@ export default function LoginScreen({ onLogin, onNavigate }: LoginScreenProps) {
         <div className="space-y-2">
           <label htmlFor="login-email" className="text-sm font-medium text-gray-700">Email</label>
           <div className="relative">
-            <Mail className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+            <Mail className="absolute left-3 top-3 w-5 h-5 text-gray-400" aria-hidden="true" />
             <Input
               id="login-email"
               type="email"
@@ -74,7 +79,7 @@ export default function LoginScreen({ onLogin, onNavigate }: LoginScreenProps) {
         <div className="space-y-2">
           <label htmlFor="login-password" className="text-sm font-medium text-gray-700">Password</label>
           <div className="relative">
-            <Lock className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+            <Lock className="absolute left-3 top-3 w-5 h-5 text-gray-400" aria-hidden="true" />
             <Input
               id="login-password"
               type="password"

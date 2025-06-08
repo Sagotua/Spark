@@ -170,8 +170,14 @@ export default function VoiceRecorder({ onSend, onCancel, recipientName }: Voice
         {!audioBlob ? (
           // Recording controls
           <>
-            <Button variant="outline" size="icon" onClick={onCancel} className="w-12 h-12">
-              <X className="w-6 h-6" />
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={onCancel}
+              className="w-12 h-12"
+              aria-label="Cancel recording"
+            >
+              <X className="w-6 h-6" aria-hidden="true" />
             </Button>
             <Button
               size="icon"
@@ -180,7 +186,11 @@ export default function VoiceRecorder({ onSend, onCancel, recipientName }: Voice
                 isRecording ? "bg-red-500 hover:bg-red-600" : "bg-pink-500 hover:bg-pink-600"
               }`}
             >
-              {isRecording ? <MicOff className="w-8 h-8" /> : <Mic className="w-8 h-8" />}
+              {isRecording ? (
+                <MicOff className="w-8 h-8" aria-hidden="true" />
+              ) : (
+                <Mic className="w-8 h-8" aria-hidden="true" />
+              )}
             </Button>
             <div className="w-12 h-12" /> {/* Spacer */}
           </>
@@ -198,16 +208,32 @@ export default function VoiceRecorder({ onSend, onCancel, recipientName }: Voice
                 setIsPlaying(false)
               }}
               className="w-12 h-12"
+              aria-label="Delete recording"
             >
-              <X className="w-6 h-6" />
+              <X className="w-6 h-6" aria-hidden="true" />
             </Button>
 
-            <Button variant="outline" size="icon" onClick={playRecording} className="w-12 h-12">
-              {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6" />}
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={playRecording}
+              className="w-12 h-12"
+              aria-label={isPlaying ? "Pause playback" : "Play recording"}
+            >
+              {isPlaying ? (
+                <Pause className="w-6 h-6" aria-hidden="true" />
+              ) : (
+                <Play className="w-6 h-6" aria-hidden="true" />
+              )}
             </Button>
 
-            <Button size="icon" onClick={handleSend} className="w-12 h-12 bg-pink-500 hover:bg-pink-600">
-              <Send className="w-6 h-6" />
+            <Button
+              size="icon"
+              onClick={handleSend}
+              className="w-12 h-12 bg-pink-500 hover:bg-pink-600"
+              aria-label="Send recording"
+            >
+              <Send className="w-6 h-6" aria-hidden="true" />
             </Button>
           </>
         )}
